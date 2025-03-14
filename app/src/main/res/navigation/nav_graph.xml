@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/authFragment">
+
+    <!-- Авторизация -->
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.example.quiz_game.ui.AuthFragment"
+        android:label="Авторизация"
+        tools:layout="@layout/fragment_auth">
+        <action
+            android:id="@+id/action_authFragment_to_menuFragment"
+            app:destination="@id/menuFragment"/>
+    </fragment>
+
+    <!-- Главное меню -->
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.quiz_game.ui.MenuFragment"
+        android:label="Меню"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menuFragment_to_difficultyFragment"
+            app:destination="@id/difficultyFragment"/>
+        <action
+            android:id="@+id/action_menuFragment_to_historyFragment"
+            app:destination="@id/historyFragment"/>
+        <action
+            android:id="@+id/action_menuFragment_to_quizFragment"
+            app:destination="@id/quizFragment"/>
+        <action
+            android:id="@+id/action_menuFragment_to_authFragment"
+            app:destination="@id/authFragment"/>
+    </fragment>
+
+    <!-- Выбор сложности -->
+    <fragment
+        android:id="@+id/difficultyFragment"
+        android:name="com.example.quiz_game.ui.DifficultyFragment"
+        android:label="Выбор сложности"
+        tools:layout="@layout/fragment_difficulty">
+        <action
+            android:id="@+id/action_difficultyFragment_to_quizFragment"
+            app:destination="@id/quizFragment"/>
+        <action
+            android:id="@+id/action_difficultyFragment_to_menuFragment"
+            app:destination="@id/menuFragment"/>
+    </fragment>
+
+    <!-- История -->
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.quiz_game.ui.HistoryFragment"
+        android:label="История"
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_historyFragment_to_menuFragment"
+            app:destination="@id/menuFragment"/>
+    </fragment>
+
+    <!-- Викторина -->
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.example.quiz_game.ui.QuizFragment"
+        android:label="Викторина"
+        tools:layout="@layout/fragment_quiz">
+        <action
+            android:id="@+id/action_quizFragment_to_resultFragment"
+            app:destination="@id/resultFragment"/>
+    </fragment>
+
+    <!-- Результаты -->
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.quiz_game.ui.ResultFragment"
+        android:label="Результат"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_resultFragment_to_menuFragment"
+            app:destination="@id/menuFragment"/>
+    </fragment>
+
+    <!-- Логаут
+    <fragment
+        android:id="@+id/logoutFragment"
+        android:name="com.example.quiz_game.ui.LogoutFragment"
+        android:label="Выход"
+        tools:layout="@layout/fragment_logout">
+        <action
+            android:id="@+id/action_logoutFragment_to_authFragment"
+            app:destination="@id/authFragment"/>
+        <action
+            android:id="@+id/action_logoutFragment_to_menuFragment"
+            app:destination="@id/menuFragment"/>
+    </fragment>-->
+
+</navigation>

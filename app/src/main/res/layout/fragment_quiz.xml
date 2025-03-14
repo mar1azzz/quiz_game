@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <!-- Таймер обратного отсчёта -->
+
+
+        <TextView
+            android:id="@+id/textTimer"
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_timer_background"
+            android:gravity="center"
+            android:text="60"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textQuestion"
+            android:layout_width="334dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Вопрос"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupAnswers"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioAnswer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ответ 1" />
+
+            <RadioButton
+                android:id="@+id/radioAnswer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ответ 2" />
+
+            <RadioButton
+                android:id="@+id/radioAnswer3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ответ 3" />
+
+            <RadioButton
+                android:id="@+id/radioAnswer4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ответ 4" />
+        </RadioGroup>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="332dp"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/buttonHint"
+                android:layout_width="147dp"
+                android:layout_height="46dp"
+                android:text="Подсказка"
+                android:backgroundTint="@color/cristal"
+                android:textColor="@color/teal_700"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonNext"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonNext"
+                android:layout_width="161dp"
+                android:layout_height="47dp"
+                android:text="Далее"
+                android:backgroundTint="@color/violet"
+                android:textColor="@color/purple_700"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonHint"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <!-- Всплывающее окно с подсказкой -->
+    <FrameLayout
+        android:id="@+id/hintOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_hint_background"
+            android:padding="20dp"
+            android:elevation="10dp"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"> <!-- Выравниваем содержимое -->
+
+            <TextView
+                android:id="@+id/textHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Это подсказка!"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textAlignment="viewStart"
+                android:gravity="center_horizontal"
+                android:paddingBottom="10dp"
+                tools:ignore="RtlCompat" />
+
+            <Button
+                android:id="@+id/buttonCloseHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Закрыть"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

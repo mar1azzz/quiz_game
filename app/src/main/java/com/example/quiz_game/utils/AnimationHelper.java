@@ -31,7 +31,7 @@ public class AnimationHelper {
 
     public static void playConfettiAnimation(KonfettiView konfettiView) {
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            // Левый верхний угол (0.0, 0.0)
+            // Левый верхний угол (0.20, 0.0)
             Party leftParty = new Party(
                     /* Направление вниз */
                     360,
@@ -52,7 +52,7 @@ public class AnimationHelper {
                     /* Исчезновение */
                     true,
                     /* Позиция в левом верхнем углу */
-                    new Position.Relative(0.23, 0.0),
+                    new Position.Relative(0.20, 0.0),
                     /* Задержка */
                     0,
                     /* Вращение */
@@ -61,7 +61,7 @@ public class AnimationHelper {
                     new Emitter(2, TimeUnit.SECONDS).max(200)
             );
 
-            // Правый верхний угол (1.0, 0.0)
+            // Правый верхний угол (0.80, 0.0)
             Party rightParty = new Party(
                     360,
                     360,
@@ -72,13 +72,31 @@ public class AnimationHelper {
                     Arrays.asList(Shape.Circle.INSTANCE, Shape.Square.INSTANCE),
                     3500,
                     true,
-                    new Position.Relative(0.77, 0.0),
+                    new Position.Relative(0.80, 0.0),
+                    0,
+                    new Rotation(),
+                    new Emitter(2, TimeUnit.SECONDS).max(200)
+            );
+
+            // Центр (0.8, 0.0)
+            Party centerParty = new Party(
+                    360,
+                    360,
+                    5f, 8f,
+                    0.9f,
+                    Arrays.asList(new Size(12, 5f, 0.2f)),
+                    Arrays.asList(0xFFE91E63, 0xFFFFC107, 0xFF3F51B5),
+                    Arrays.asList(Shape.Circle.INSTANCE, Shape.Square.INSTANCE),
+                    3500,
+                    true,
+                    new Position.Relative(0.5, 0.0),
                     0,
                     new Rotation(),
                     new Emitter(2, TimeUnit.SECONDS).max(200)
             );
 
             konfettiView.start(leftParty);
+            konfettiView.start(centerParty);
             konfettiView.start(rightParty);
 
         }, 2000); // Запуск через 2 секунды
